@@ -2,7 +2,7 @@ import { HonestyNote } from "@/components/shared/demo-badge";
 import { PageHeader } from "@/components/shared/page-header";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { catalogProducts, familyLabel, formatLabel } from "@/data/products";
+import { catalogProducts, familyLabel } from "@/data/products";
 import { siteConfig } from "@/lib/config";
 
 const families = Object.keys(familyLabel) as Array<keyof typeof familyLabel>;
@@ -12,11 +12,11 @@ export default function ProductsPage() {
     <div className="mx-auto max-w-6xl space-y-6">
       <PageHeader
         title="كتالوج المنتجات كما نُشر"
-        description="المصدر: صفحة Our Products على الموقع الرسمي. لا أسعار هنا لأن التصفح العام لم يُظهر أسعاراً موثوقة."
+        description="المصدر: صفحات التصنيف على gepico.com في 16 آب 2026. الأسماء كما ظهرت للعامة، بما فيها الأغلاط الظاهرة."
       />
       <HonestyNote>
-        الأوزان والتعريفات من الموقع. أي رقم مبيعات أو تكلفة في صفحات أخرى تجريبي.
-        <a className="ms-2 text-copper underline-offset-4 hover:underline" href={siteConfig.productsUrl} target="_blank" rel="noreferrer">
+        لا أسعار هنا. بعض الأصناف مكررة أو تجريبية على الموقع نفسه — نعرض ذلك بأمانة.
+        <a className="ms-2 text-copper underline-offset-4 hover:underline" href={siteConfig.websiteUrl} target="_blank" rel="noreferrer">
           المصدر
         </a>
       </HonestyNote>
@@ -31,14 +31,13 @@ export default function ProductsPage() {
                 <Card key={item.id} className="shadow-sm">
                   <CardHeader className="pb-2">
                     <div className="flex flex-wrap gap-2">
-                      <Badge variant="outline">{formatLabel[item.format]}</Badge>
-                      {item.milkHint ? <Badge variant="secondary">{item.milkHint}</Badge> : null}
+                      {item.note ? <Badge variant="secondary">{item.note}</Badge> : null}
+                      {item.siteIssue ? <Badge variant="outline">{item.siteIssue}</Badge> : null}
                     </div>
                     <CardTitle className="text-base">{item.nameAr}</CardTitle>
                   </CardHeader>
                   <CardContent className="text-sm text-muted-foreground">
                     <p>{item.nameEn}</p>
-                    <p className="mt-1">{item.packNote}</p>
                   </CardContent>
                 </Card>
               ))}

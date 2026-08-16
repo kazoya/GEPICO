@@ -1,13 +1,13 @@
 import type { DemoBatch, Insight, MonthlyKpi } from "@/types";
 
-/** Illustrative scenario only — not AlMazraa operating figures. */
+/** Illustrative scenario only — not GEPICO operating figures. */
 export const monthlyKpis: MonthlyKpi[] = [
-  { month: "شباط", milkLiters: 18200, cheeseKg: 2140, yieldPct: 11.8, holdLots: 4, coldAlerts: 2, onTimeDeliveryPct: 93, exportShipments: 3 },
-  { month: "آذار", milkLiters: 19100, cheeseKg: 2280, yieldPct: 11.9, holdLots: 3, coldAlerts: 1, onTimeDeliveryPct: 94, exportShipments: 4 },
-  { month: "نيسان", milkLiters: 20500, cheeseKg: 2410, yieldPct: 11.8, holdLots: 5, coldAlerts: 3, onTimeDeliveryPct: 91, exportShipments: 5 },
-  { month: "أيار", milkLiters: 19800, cheeseKg: 2360, yieldPct: 11.9, holdLots: 2, coldAlerts: 1, onTimeDeliveryPct: 95, exportShipments: 4 },
-  { month: "حزيران", milkLiters: 18600, cheeseKg: 2210, yieldPct: 11.9, holdLots: 3, coldAlerts: 2, onTimeDeliveryPct: 94, exportShipments: 3 },
-  { month: "تموز", milkLiters: 17900, cheeseKg: 2090, yieldPct: 11.7, holdLots: 6, coldAlerts: 4, onTimeDeliveryPct: 90, exportShipments: 2 },
+  { month: "شباط", orders: 186, onTimePct: 94, labHolds: 4, exportShipments: 11, specifierInquiries: 42, solarSharePct: 30 },
+  { month: "آذار", orders: 201, onTimePct: 95, labHolds: 3, exportShipments: 13, specifierInquiries: 48, solarSharePct: 30 },
+  { month: "نيسان", orders: 214, onTimePct: 93, labHolds: 6, exportShipments: 12, specifierInquiries: 55, solarSharePct: 31 },
+  { month: "أيار", orders: 198, onTimePct: 96, labHolds: 2, exportShipments: 14, specifierInquiries: 51, solarSharePct: 31 },
+  { month: "حزيران", orders: 221, onTimePct: 92, labHolds: 5, exportShipments: 15, specifierInquiries: 60, solarSharePct: 32 },
+  { month: "تموز", orders: 209, onTimePct: 91, labHolds: 7, exportShipments: 10, specifierInquiries: 44, solarSharePct: 30 },
 ];
 
 export const insights: Insight[] = [
@@ -15,38 +15,37 @@ export const insights: Insight[] = [
     id: "ins1",
     title: "ارتفاع احتجاز المختبر في تموز (سيناريو)",
     severity: "watch",
-    reason: "في البيانات التجريبية زادت الدفعات المحتجزة مع تنبيهات حرارة. لا يُستنتج واقع المصنع من هذا.",
-    dataUsed: ["holdLots", "coldAlerts"],
-    confidence: 0.42,
-    recommendedAction: "التحقق ميدانياً: هل المختبر عنق زجاجة صيفاً أم أن التسجيل ناقص؟",
+    reason: "في البيانات التجريبية زادت التشغيلات المحتجزة مع انخفاض الالتزام بالتسليم. لا يُستنتج واقع المصنع من هذا.",
+    dataUsed: ["labHolds", "onTimePct"],
+    confidence: 0.4,
+    recommendedAction: "التحقق ميدانياً: هل المختبر عنق زجاجة أم أن التسجيل ناقص؟",
     requiresApproval: true,
   },
   {
     id: "ins2",
-    title: "فرصة بوابة دلي قبل متجر تجزئة",
+    title: "البوابة أوضح من السلة الفارغة",
     severity: "action",
-    reason: "الموقع يعرض سلة بالدينار دون مسار شراء واضح. طلبات البراميل غالباً B2B.",
-    dataUsed: ["مراقبة الموقع العام"],
-    confidence: 0.7,
-    recommendedAction: "اكتشاف قناة الطلب الحالية ثم تجريب بوابة حسابات معتمدة.",
+    reason: "الموقع يعرض عربة وعامة يرون صفراً، والكتالوج خلف تسجيل وملف عيّنة. المحدّد يحتاج دليلاً وطلب كمية لا متجراً استهلاكياً.",
+    dataUsed: ["مراقبة gepico.com"],
+    confidence: 0.78,
+    recommendedAction: "اكتشاف قناة الطلب الحالية ثم تجريب حسابات معتمدة للمحدّدين والموزّعين.",
     requiresApproval: true,
   },
   {
     id: "ins3",
-    title: "التتبع من الحليب إلى العبوة غير مؤكد",
+    title: "هدف الطاقة 2026 يحتاج قياساً لا شعاراً",
     severity: "info",
-    reason: "لا يوجد وصف علني لشجرة النسب. أي تصور جاد يبدأ بسؤال التتبع لا بلوحة جميلة.",
-    dataUsed: ["صفحات الموقع العامة"],
-    confidence: 0.8,
-    recommendedAction: "جولة اكتشاف: باركود، دفاتر، أو نظام قائم.",
+    reason: "الشركة تعلن 30% شمساً وهدفاً لصافي صفر في 2026. دون قراءات شهرية يبقى الهدف تسويقياً.",
+    dataUsed: ["صفحة Milestones"],
+    confidence: 0.7,
+    recommendedAction: "في الاكتشاف: مصدر رقم الـ 30% وكيف سيُقاس التقدم.",
     requiresApproval: false,
   },
 ];
 
 export const demoBatches: DemoBatch[] = [
-  { id: "B-24081", product: "نابلسي مغلي سكن 200غ", milkSource: "cow", status: "packing", startedAt: "2026-08-14T06:10:00", labResult: "pass" },
-  { id: "B-24082", product: "لبنة جرشية برميل 4.5كغ", milkSource: "cow", status: "lab_hold", startedAt: "2026-08-15T05:40:00", labResult: "pending" },
-  { id: "B-24083", product: "جميد سائل مبستر 1كغ", milkSource: "sheep", status: "cold_store", startedAt: "2026-08-13T07:00:00", labResult: "pass" },
-  { id: "B-24084", product: "حلوم بالزعتر سكن 200غ", milkSource: "cow", status: "in_process", startedAt: "2026-08-16T04:55:00", labResult: "pass" },
-  { id: "B-24085", product: "سمنة بلدي غنم 500غ", milkSource: "sheep", status: "receiving", startedAt: "2026-08-16T06:20:00", labResult: "pending" },
+  { id: "R-24081", product: "مواسير UV — سيناريو", status: "packing", startedAt: "2026-08-14T06:10:00", labResult: "pass" },
+  { id: "R-24082", product: "مموج 1250N — سيناريو", status: "lab_hold", startedAt: "2026-08-15T05:40:00", labResult: "pending" },
+  { id: "R-24083", product: "قناة متعددة الحجرات — سيناريو", status: "warehouse", startedAt: "2026-08-13T07:00:00", labResult: "pass" },
+  { id: "R-24084", product: "علبة LED 18W — سيناريو", status: "in_process", startedAt: "2026-08-16T04:55:00", labResult: "pass" },
 ];

@@ -3,16 +3,16 @@ import { PageHeader } from "@/components/shared/page-header";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { siteConfig } from "@/lib/config";
 
-const markets = ["دول الخليج", "فلسطين", "الولايات المتحدة", "كندا", "أستراليا"];
+const markets = ["الشرق الأوسط", "أسواق عالمية (غير مفصّلة)", "توسّع مصانع في أسواق أخرى — خطة معلنة"];
 
 export default function ExportPage() {
   return (
     <div className="mx-auto max-w-5xl space-y-6">
       <PageHeader
-        title="التصدير"
-        description={`حسب الموقع: وصول إلى ${siteConfig.claims.exportCountries} بعد فحوصات في تلك الأسواق.`}
+        title="التصدير والأسواق"
+        description={siteConfig.claims.exportHonor}
       />
-      <HonestyNote>الأسماء أدناه مناطق ذكرها الموقع. ليست قائمة شحنات فعلية ولا تواريخ.</HonestyNote>
+      <HonestyNote>الموقع لا ينشر قائمة دول أو أحجام شحن. الأسماء أدناه مناطق ذكر عامة لا جدول تصدير.</HonestyNote>
       <div className="flex flex-wrap gap-2">
         {markets.map((m) => (
           <span key={m} className="rounded-full border bg-card px-3 py-1.5 text-sm">
@@ -25,7 +25,7 @@ export default function ExportPage() {
           <CardTitle className="text-base">حزمة المستندات المقترحة</CardTitle>
         </CardHeader>
         <CardContent className="text-sm leading-7 text-muted-foreground">
-          ربط كل شحنة تصدير: رقم الدفعة، شهادة حلال، ISO 22000، متطلبات بلد الوصول، وسلسلة تبريد الشحن.
+          ربط كل شحنة: رقم التشغيل، ISO 9001، علامة الجودة الأردنية، تحقق BSI إن طُلب، ومتطلبات بلد الوصول.
           الزمن المستهدف يُقاس بعد الاكتشاف لا قبله.
         </CardContent>
       </Card>

@@ -1,34 +1,32 @@
 import { z } from "zod";
 
-export const STORAGE_KEY = "farm-dairy-discovery-assessment";
+export const STORAGE_KEY = "gepico-discovery-assessment";
 
 const text = z.string();
 const list = z.array(z.string());
 
 export const assessmentSchema = z.object({
-  milkSources: list,
-  supplierCount: text,
-  intakeDigital: text,
-  rejectRules: text,
+  customerTypes: list,
+  inquiryChannel: text,
+  quoteProcess: text,
+  priceApproval: text,
+  materialPartners: text,
+  materialBuffer: text,
+  lineCount: text,
+  capacityReserve: text,
+  changeover: text,
   labStages: text,
   holdRelease: text,
   certificates: text,
   recallReady: text,
-  lineCount: text,
-  skuChangeover: text,
-  yieldTracked: text,
-  recipeControl: text,
-  packLines: text,
-  multifreshNotes: text,
-  weightChecks: text,
-  coldRooms: text,
-  truckTemp: text,
-  alertProcess: text,
-  orderChannels: list,
-  shopStatus: text,
-  b2bNeed: text,
+  warehouseSystem: text,
+  availableToPromise: text,
+  packLabel: text,
   exportMarkets: text,
   exportDocsHours: text,
+  solarMetering: text,
+  shopStatus: text,
+  specifierPortalNeed: text,
   systems: list,
   hasApi: text,
   dailyReports: text,
@@ -39,29 +37,27 @@ export const assessmentSchema = z.object({
 export type AssessmentValues = z.infer<typeof assessmentSchema>;
 
 export const defaultAssessment: AssessmentValues = {
-  milkSources: [],
-  supplierCount: "",
-  intakeDigital: "",
-  rejectRules: "",
+  customerTypes: [],
+  inquiryChannel: "",
+  quoteProcess: "",
+  priceApproval: "",
+  materialPartners: "",
+  materialBuffer: "",
+  lineCount: "",
+  capacityReserve: "",
+  changeover: "",
   labStages: "",
   holdRelease: "",
   certificates: "",
   recallReady: "",
-  lineCount: "",
-  skuChangeover: "",
-  yieldTracked: "",
-  recipeControl: "",
-  packLines: "",
-  multifreshNotes: "",
-  weightChecks: "",
-  coldRooms: "",
-  truckTemp: "",
-  alertProcess: "",
-  orderChannels: [],
-  shopStatus: "",
-  b2bNeed: "",
+  warehouseSystem: "",
+  availableToPromise: "",
+  packLabel: "",
   exportMarkets: "",
   exportDocsHours: "",
+  solarMetering: "",
+  shopStatus: "",
+  specifierPortalNeed: "",
   systems: [],
   hasApi: "",
   dailyReports: "",
@@ -69,8 +65,15 @@ export const defaultAssessment: AssessmentValues = {
   notes: "",
 };
 
-export const milkSourceOptions = ["بقر", "غنم", "ماعز", "خلطة", "غير معروف بعد"];
-export const channelOptions = ["مندوب", "هاتف", "واتساب", "بريد", "موقع", "تاجر دلي", "تصدير"];
+export const customerTypeOptions = [
+  "محدّد / مكتب هندسي",
+  "مقاول تركيب",
+  "موزّع",
+  "مالك مشروع",
+  "تصدير",
+  "غير معروف بعد",
+];
+export const channelOptions = ["مندوب", "هاتف", "واتساب", "بريد", "موقع", "معرض", "تصدير"];
 export const systemOptions = [
   "لا شيء رقمي",
   "إكسل",
@@ -78,7 +81,7 @@ export const systemOptions = [
   "WooCommerce",
   "نظام جودة",
   "ERP",
-  "أجهزة حرارة",
+  "WMS",
   "غير معروف",
 ];
 

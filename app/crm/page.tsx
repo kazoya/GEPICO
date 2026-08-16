@@ -11,7 +11,7 @@ export default function CrmPage() {
         title="العملاء والطلبات"
         description="لا توجد قائمة عملاء عامة. الجدول يوضح شكل خط الأنابيب بعد الرقمنة."
       />
-      <HonestyNote>كل حساب أدناه سيناريو. لا علاقة له بعملاء حقيقيين للمزرعة.</HonestyNote>
+      <HonestyNote>كل حساب أدناه سيناريو. لا علاقة له بعملاء حقيقيين لـ GEPICO.</HonestyNote>
       <Card className="shadow-sm">
         <CardHeader>
           <CardTitle className="text-base">خط أنابيب تجريبي</CardTitle>

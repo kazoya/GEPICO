@@ -19,12 +19,12 @@ export function RoiCalculator() {
   return (
     <div className="space-y-4">
       <HonestyNote>
-        آلة حاسبة توضيحية فقط. الأرقام افتراضية ولا تمثّل تكلفة أو هدراً في المزرعة. لا تُستخدم في عرض مالي.
+        آلة حاسبة توضيحية فقط. الأرقام افتراضية ولا تمثّل تكلفة أو هدراً في GEPICO. لا تُستخدم في عرض مالي.
       </HonestyNote>
       <div className="grid gap-4 md:grid-cols-2">
         <Field label="ساعات تنسيق أسبوعية تُوفَّر (افتراض)" value={hours} onChange={setHours} />
         <Field label="تكلفة الساعة بالدينار (افتراض)" value={rate} onChange={setRate} />
-        <Field label="هدر تبريد/صلاحية شهري بالدينار (افتراض)" value={waste} onChange={setWaste} />
+        <Field label="هدر إعادة تشغيل / مرتجعات شهري بالدينار (افتراض)" value={waste} onChange={setWaste} />
         <Field label="تكلفة تجريب أولى بالدينار (افتراض)" value={pilot} onChange={setPilot} />
       </div>
       <Card>

@@ -57,10 +57,10 @@ export default function AssessmentResultsPage() {
           </CardTitle>
         </CardHeader>
         <CardContent className="space-y-2 text-sm leading-7 text-muted-foreground">
-          <p>مصادر الحليب: {values.milkSources.join(" · ") || "غير محدد"}</p>
-          <p>الاستلام: {values.intakeDigital || "غير محدد"}</p>
-          <p>الإفراج: {values.holdRelease || "غير محدد"}</p>
-          <p>قنوات الطلب: {values.orderChannels.join(" · ") || "غير محدد"}</p>
+          <p>أنواع العملاء: {values.customerTypes.join(" · ") || "غير محدد"}</p>
+          <p>قناة الاستفسار: {values.inquiryChannel || "غير محدد"}</p>
+          <p>الإفراج المخبري: {values.holdRelease || "غير محدد"}</p>
+          <p>المستودع / التوافر: {values.availableToPromise || "غير محدد"}</p>
           <p>المتجر: {values.shopStatus || "غير محدد"}</p>
           <p>الأنظمة: {values.systems.join(" · ") || "غير محدد"}</p>
           <p>ملاحظات: {values.notes || "لا شيء"}</p>

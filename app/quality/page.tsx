@@ -9,7 +9,7 @@ export default function QualityPage() {
     <div className="mx-auto max-w-5xl space-y-6">
       <PageHeader
         title="الجودة وسلامة الغذاء"
-        description="في الألبان الجودة ليست قسماً جانبياً. الإفراج والتتبع والاستدعاء أعمدة أي تصور موثوق."
+        description="في أنظمة الأسلاك الجودة ليست قسماً جانبياً. الإفراج والتتبع والاستدعاء أعمدة أي تصور موثوق."
       />
       <HonestyNote>الشهادات مأخوذة من نص الشركة. لم نراجع ملفات الشهادات الأصلية.</HonestyNote>
       <div className="grid gap-4 md:grid-cols-2">

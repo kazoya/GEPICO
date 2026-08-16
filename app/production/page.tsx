@@ -11,20 +11,19 @@ export default function ProductionPage() {
     <div className="mx-auto max-w-5xl space-y-6">
       <PageHeader
         title="الإنتاج"
-        description="تنوع الأصناف بين دلي وتجزئة يعني تحويلات كثيرة. الجدول سيناريو لشكل لوحة الوردية بعد الرقمنة — ليس إنتاج اليوم."
+        description="الشركة تعلن استثماراً في الخطوط وطاقة احتياطية حتى لا يتأخر طلب. الجدول سيناريو لشكل لوحة الوردية بعد الرقمنة — ليس إنتاج اليوم."
       />
-      <HonestyNote>لا طاقة إنتاج معلنة على الموقع. أي لتر أو كيلوغرام هنا تجريبي.</HonestyNote>
+      <HonestyNote>لا طاقة بالطن معلنة على الموقع. أي رقم تشغيل هنا تجريبي.</HonestyNote>
       <Card className="shadow-sm">
         <CardHeader>
-          <CardTitle className="text-base">دفعات تجريبية</CardTitle>
+          <CardTitle className="text-base">تشغيلات تجريبية</CardTitle>
         </CardHeader>
         <CardContent>
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHead>الدفعة</TableHead>
+                <TableHead>التشغيل</TableHead>
                 <TableHead>الصنف</TableHead>
-                <TableHead>الحليب</TableHead>
                 <TableHead>الحالة</TableHead>
                 <TableHead>المختبر</TableHead>
               </TableRow>
@@ -34,7 +33,6 @@ export default function ProductionPage() {
                 <TableRow key={row.id}>
                   <TableCell className="font-mono text-xs">{row.id}</TableCell>
                   <TableCell>{row.product}</TableCell>
-                  <TableCell>{row.milkSource}</TableCell>
                   <TableCell>
                     <Badge variant="outline">{batchStatusLabel[row.status]}</Badge>
                   </TableCell>

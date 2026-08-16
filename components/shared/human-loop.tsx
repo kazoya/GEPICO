@@ -25,7 +25,7 @@ export function HumanInTheLoop({ note }: { note?: string }) {
       </ol>
       <p className="mt-3 text-xs leading-6 text-muted-foreground">
         {note ??
-          "لا يُعتمد سعر، ولا يُفرج عن دفعة، ولا تُغيَّر وصفة، ولا يُحوَّل مورد حليب دون تفويض موظف مختص."}
+          "لا يُعتمد سعر، ولا يُفرج عن تشغيل، ولا تُغيَّر مواصفة، ولا يُحظر مورّد دون تفويض موظف مختص."}
       </p>
     </div>
   );

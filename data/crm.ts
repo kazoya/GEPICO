@@ -1,32 +1,32 @@
 import type { CrmDeal, DemoSupplier } from "@/types";
 
 export const demoSuppliers: DemoSupplier[] = [
-  { id: "s1", alias: "مورد حليب أ (تجريبي)", milkSource: "cow", reliabilityScore: 92, lastDelivery: "2026-08-15", note: "اسم مستعار — ليس مورداً معلناً" },
-  { id: "s2", alias: "مورد أغنام ب (تجريبي)", milkSource: "sheep", reliabilityScore: 81, lastDelivery: "2026-08-14", note: "لسيناريو الجميد والنابلسي الغنم" },
-  { id: "s3", alias: "مورد ماعز ج (تجريبي)", milkSource: "goat", reliabilityScore: 74, lastDelivery: "2026-08-12", note: "انحراف حرارة في السيناريو" },
+  { id: "s1", alias: "مورّد خامة PVC (تجريبي)", material: "PVC", reliabilityScore: 91, lastDelivery: "2026-08-15", note: "اسم مستعار — ليس مورّداً معلناً" },
+  { id: "s2", alias: "مورّد PE خالٍ من الهالوجين (تجريبي)", material: "PE / LSF", reliabilityScore: 84, lastDelivery: "2026-08-14", note: "لسيناريو المموج منخفض الدخان" },
+  { id: "s3", alias: "مورّد إضافات UV (تجريبي)", material: "UV additives", reliabilityScore: 77, lastDelivery: "2026-08-12", note: "انحراف وثيقة مطابقة في السيناريو" },
 ];
 
 export const crmDeals: CrmDeal[] = [
-  { id: "d1", account: "سلسلة تجزئة — سيناريو", channel: "مندوب", stage: "تفاوض تشكيلة", skuFocus: "سكن نابلسي وحلوم", owner: "مبيعات (تجريبي)" },
-  { id: "d2", account: "تاجر دلي — سيناريو", channel: "هاتف", stage: "طلب أسبوعي", skuFocus: "براميل لبنة وعكاوي", owner: "مبيعات (تجريبي)" },
-  { id: "d3", account: "موزّع تصدير — سيناريو", channel: "بريد", stage: "مستندات", skuFocus: "جميد وحلال", owner: "تصدير (تجريبي)" },
+  { id: "d1", account: "مكتب هندسي — سيناريو", channel: "موقع / بريد", stage: "مواصفة مشروع", skuFocus: "UV + علب مخارج", owner: "مبيعات (تجريبي)" },
+  { id: "d2", account: "موزّع إقليمي — سيناريو", channel: "هاتف", stage: "طلب أسبوعي", skuFocus: "مواسير صلبة وتجهيزات", owner: "مبيعات (تجريبي)" },
+  { id: "d3", account: "مشروع تصدير — سيناريو", channel: "معرض", stage: "مستندات", skuFocus: "مموج 1250N وBSI", owner: "تصدير (تجريبي)" },
 ];
 
 export const shopFindings = [
   {
-    title: "سلة موجودة",
-    text: "واجهة الموقع تعرض عربة تسوق بالدينار الأردني (WooCommerce).",
+    title: "سلة ظاهرة وعامة فارغة",
+    text: "gepico.com يعرض عربة تسوق. التصفح العام يظهر صفر منتجات في السلة.",
   },
   {
-    title: "مسار شراء غير مكتمل ظاهرياً",
-    text: "التصفح العام لا يُظهر متجراً جاهزاً بأسعار وخطوات دفع واضحة.",
+    title: "تنزيل خلف تسجيل",
+    text: "رسالة صريحة: تحتاج تسجيلاً لتنزيل الملفات. هذا يبطئ المحدّد أكثر مما يحمي كتالوجاً صناعياً.",
   },
   {
-    title: "كتالوج غني خارج السلة",
-    text: "صفحة المنتجات تفصّل الدلي والقطع والمرتبانات والسكن — هذا أصل يمكن تحويله إلى قناة طلب.",
+    title: "رابط كتالوج عيّنة",
+    text: "في صفحات التصنيف يظهر كتاب يرتبط بـ pdfobject.com/pdf/sample.pdf وليس بكتالوج GEPICO.",
   },
   {
-    title: "فرصة أوضح: B2B ثم تجزئة",
-    text: "البراميل 4–5 كغ تناسب التاجر أكثر من المستهلك. المتجر الاستهلاكي يأتي بعد بوابة الحسابات.",
+    title: "فرصة أوضح: بوابة B2B",
+    text: "العميل الطبيعي محدّد أو مقاول أو موزّع. حساب معتمد وطلب كمية أصدق من متجر تجزئة.",
   },
 ];

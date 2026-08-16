@@ -8,7 +8,7 @@ export default function AutomationPage() {
     <div className="mx-auto max-w-5xl space-y-6">
       <PageHeader
         title="فرص الأتمتة"
-        description="نبدأ بما يمنع الخطأ في الحليب والجودة والطلب، لا بروbot على أرض المصنع من اليوم الأول."
+        description="نبدأ بما يمنع الخطأ في المواصفة والجودة والطلب، لا روبوتاً على أرض المصنع من اليوم الأول."
       />
       <HonestyNote>الأولوية المقترحة: استلام رقمي → إفراج مخبري → قناة طلب B2B. الأجهزة لاحقاً.</HonestyNote>
       <OpportunityGrid items={automationOpportunities} />

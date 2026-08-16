@@ -23,12 +23,12 @@ export function KnowledgeAssistant() {
   return (
     <div className="mx-auto max-w-4xl space-y-6">
       <PageHeader
-        title="مساعد معرفة المزرعة"
-        description="يجيب الآن من الصفحات العامة للموقع. لاحقاً يُفهرس أرشيف الجودة الداخلي مع ذكر المصدر دائماً."
+        title="مساعد معرفة جيبيكو"
+        description="يجيب الآن من الصفحات العامة للموقع. لاحقاً يُفهرس دليل المواصفات الداخلي مع ذكر المصدر دائماً."
         demoLabel="إجابات من المصدر العام أو اعتذار"
       />
       <HonestyNote>
-        لا تخمين لأرقام الطاقة أو الأسعار أو عدد الرؤوس. إن لم يوجد مصدر، يعتذر المساعد.
+        لا تخمين لأرقام الطاقة بالطن أو الأسعار أو عدد الخطوط. إن لم يوجد مصدر، يعتذر المساعد.
       </HonestyNote>
       <div className="flex flex-wrap gap-2">
         {sampleQuestions.map((question) => (
@@ -83,8 +83,8 @@ export function KnowledgeAssistant() {
         <AccordionItem value="rag">
           <AccordionTrigger>كيف سيُبنى المساعد لاحقاً؟</AccordionTrigger>
           <AccordionContent className="text-sm leading-7 text-muted-foreground">
-            تُفهرس مواصفات الأصناف وإجراءات ISO 22000 وشهادات الحلال وتعليمات الخط بعد اعتمادها.
-            عند السؤال يُسترجع المقطع ويُذكر المصدر. لا إفراج عن دفعة ولا تغيير وصفة من المحادثة.
+            تُفهرس مواصفات الأصناف وإجراءات ISO 9001 وشهادات علامة الجودة وBSI وتعليمات الخط بعد اعتمادها.
+            عند السؤال يُسترجع المقطع ويُذكر المصدر. لا إفراج عن تشغيل ولا تغيير مواصفة من المحادثة.
           </AccordionContent>
         </AccordionItem>
       </Accordion>

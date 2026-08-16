@@ -9,7 +9,7 @@ export default function AiPage() {
     <div className="mx-auto max-w-5xl space-y-6">
       <PageHeader
         title="فرص الذكاء الاصطناعي"
-        description="الذكاء هنا يفسّر ويقترح بعد توفر أثر رقمي. لا يفرج عن دفعة ولا يغيّر وصفة الثلاثة مكوّنات."
+        description="الذكاء هنا يفسّر ويقترح بعد توفر أثر رقمي. لا يفرج عن تشغيل ولا يغيّر مواصفة ولا يعتمد سعراً."
       />
       <HonestyNote>معظم فرص الذكاء تحتاج تاريخاً. مساعد المعرفة يمكن تجريبه مبكراً على الوثائق المعتمدة.</HonestyNote>
       <HumanInTheLoop />

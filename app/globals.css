@@ -53,43 +53,43 @@
 }
 
 :root {
-  /* AlMazraa Dairy — Organic Biophilic, cream milk + forest */
-  --background: #f7f3ea;
-  --foreground: #14532d;
-  --card: #fffdf8;
-  --card-foreground: #14532d;
-  --popover: #fffdf8;
-  --popover-foreground: #14532d;
-  --primary: #1b4332;
-  --primary-foreground: #f8faf4;
-  --secondary: #eef4ea;
-  --secondary-foreground: #1b4332;
-  --muted: #f2eee4;
+  /* GEPICO — industrial navy / electric blue from gepico.com */
+  --background: #f3f6fb;
+  --foreground: #1b1548;
+  --card: #ffffff;
+  --card-foreground: #1b1548;
+  --popover: #ffffff;
+  --popover-foreground: #1b1548;
+  --primary: #05182e;
+  --primary-foreground: #f8fafc;
+  --secondary: #e1eef7;
+  --secondary-foreground: #05182e;
+  --muted: #eef2f7;
   --muted-foreground: #4b5563;
-  --accent: #ecfdf5;
-  --accent-foreground: #065f46;
-  --destructive: #dc2626;
-  --border: #ddd6c7;
-  --input: #ddd6c7;
-  --ring: #047857;
-  --chart-1: #1b4332;
-  --chart-2: #047857;
-  --chart-3: #c4a574;
-  --chart-4: #65a30d;
-  --chart-5: #78716c;
+  --accent: #e1eef7;
+  --accent-foreground: #1e58af;
+  --destructive: #de3131;
+  --border: #d5dce2;
+  --input: #d5dce2;
+  --ring: #1e58af;
+  --chart-1: #1e58af;
+  --chart-2: #212457;
+  --chart-3: #22b567;
+  --chart-4: #816cf3;
+  --chart-5: #868e96;
   --radius: 0.9rem;
-  --sidebar: #0f2a1f;
-  --sidebar-foreground: #f4f7f1;
-  --sidebar-primary: #c4a574;
-  --sidebar-primary-foreground: #0f2a1f;
-  --sidebar-accent: #1b4332;
-  --sidebar-accent-foreground: #f8faf4;
-  --sidebar-border: #1a3a2c;
-  --sidebar-ring: #c4a574;
-  --copper: #047857;
-  --steel: #1b4332;
-  --gold: #c4a574;
-  --ochre: #e7d3a4;
+  --sidebar: #05182e;
+  --sidebar-foreground: #f4f7fb;
+  --sidebar-primary: #1e58af;
+  --sidebar-primary-foreground: #f8fafc;
+  --sidebar-accent: #0a2744;
+  --sidebar-accent-foreground: #f8fafc;
+  --sidebar-border: #0f2f4d;
+  --sidebar-ring: #1e58af;
+  --copper: #1e58af;
+  --steel: #212457;
+  --gold: #7eb6e9;
+  --ochre: #e1eef7;
 }
 
 .dark {
@@ -154,15 +154,15 @@
 
 .meadow-grid {
   background-image:
-    linear-gradient(to left, rgb(27 67 50 / 0.06) 1px, transparent 1px),
-    linear-gradient(to bottom, rgb(196 165 116 / 0.08) 1px, transparent 1px);
+    linear-gradient(to left, rgb(30 88 175 / 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(5 24 46 / 0.06) 1px, transparent 1px);
   background-size: 48px 48px;
 }
 
 .dairy-glow {
   background:
-    radial-gradient(ellipse 80% 55% at 50% -10%, rgb(4 120 87 / 0.14), transparent 55%),
-    radial-gradient(ellipse 50% 40% at 0% 0%, rgb(196 165 116 / 0.18), transparent 50%);
+    radial-gradient(ellipse 80% 55% at 50% -10%, rgb(30 88 175 / 0.16), transparent 55%),
+    radial-gradient(ellipse 50% 40% at 0% 0%, rgb(33 36 87 / 0.12), transparent 50%);
 }
 
 .brand-arch {
@@ -170,8 +170,8 @@
 }
 
 .cream-panel {
-  background: linear-gradient(160deg, #e7d3a4 0%, #c4a574 100%);
-  color: #14532d;
+  background: linear-gradient(160deg, #1e58af 0%, #212457 100%);
+  color: #f8fafc;
 }
 
 @keyframes brand-rise {

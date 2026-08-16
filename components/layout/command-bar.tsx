@@ -32,7 +32,7 @@ export function CommandBar({ onOpenMenu }: CommandBarProps) {
           </Button>
           <Link
             href="/"
-            className="relative hidden h-9 w-14 shrink-0 overflow-hidden rounded-xl border border-gold/40 bg-black p-0.5 sm:block"
+            className="relative hidden h-9 w-16 shrink-0 overflow-hidden rounded-xl border border-gold/40 bg-white p-0.5 sm:block"
             aria-label="الصفحة الرئيسية"
           >
             <BrandLogo alt="" />
@@ -40,7 +40,7 @@ export function CommandBar({ onOpenMenu }: CommandBarProps) {
           <div className="min-w-0">
             <p className="truncate text-sm font-medium">{findNavLabel(pathname)}</p>
             <p className="hidden text-xs text-muted-foreground sm:block">
-              تصور رقمي لصناعة الألبان — استكشافي
+              تصور رقمي لأنظمة إدارة الأسلاك — استكشافي
             </p>
           </div>
         </div>

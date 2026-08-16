@@ -11,31 +11,38 @@ function parseEmailList(raw: string): string[] {
 }
 
 export const siteConfig = {
-  nameAr: "المزرعة للألبان",
-  nameEn: "AlMazraa Dairy",
-  productName: "تصور التحول الرقمي للألبان",
-  recipient: "السيد علاء حماد",
+  nameAr: "جيبيكو",
+  nameEn: "GEPICO",
+  legalNameAr: "مؤسسة الخليج الفنية الصناعية",
+  legalNameEn: "Gulf Technical Industrial Establishment",
+  productName: "تصور التحول الرقمي لأنظمة إدارة الأسلاك",
+  recipient: "السيد علاء حسين",
   recipientRole: "مشرف المبيعات",
-  founderAr: "أحمد برّاك الشقعة",
-  founderEn: "Ahmad Barrak Shakaa",
+  founderAr: "م. محمود أبو خزنة",
+  founderEn: "Eng. Mahmoud Abu Khazneh",
   country: "الأردن",
   city: "عمّان",
-  since: 1994,
-  websiteUrl: "https://mazraadairy.com/",
-  productsUrl: "https://mazraadairy.com/our-products/",
-  aboutUrl: "https://mazraadairy.com/about-us/",
+  since: 1991,
+  websiteUrl: "https://gepico.com/",
+  productsUrl: "https://gepico.com/product-category/rigid-conduits/",
+  aboutUrl: "https://gepico.com/profile/",
+  catalogNote: "الكتالوج القابل للتنزيل على الموقع يشير إلى ملف عيّنة عام، والتحميل يطلب تسجيلاً.",
   defaultMapsUrl: "",
-  defaultWhatsAppPhone: "962796045082",
-  defaultWhatsAppPrefill: "السلام عليكم السيد علاء حماد بخصوص ",
-  defaultEmails: [] as const,
-  postalAddressAr:
-    "صندوق بريد: 851488 عمّان 11185 الأردن — عمّان المقابلين حي الحسنية شارع عين سيرين",
+  defaultPhone: "96264023605",
+  defaultWhatsAppPhone: "962797000291",
+  defaultWhatsAppPrefill: "السلام عليكم السيد علاء حسين بخصوص ",
+  defaultEmails: ["info@gepico.com"] as const,
   claims: {
-    marketShareBulkWhiteCheese: "65%",
-    exportCountries: "أكثر من 12 دولة",
-    ingredients: ["حليب طازج", "ملح طبيعي", "إنزيم ميكروبي"],
-    certificates: ["ISO 22000", "حلال"],
-    packaging: "Multivac ألمانيا — تقنية MultiFresh",
+    years: "35+",
+    iso9001Since: 1996,
+    jordanQualityMarkSince: 1997,
+    qualityMarkLevel: "110% من متطلبات المواصفة — حسب الشركة",
+    bsi: "شهادات تحقق من BSI — حسب الشركة",
+    warehouseM2: "أكثر من 20,000 م²",
+    solarNow: "30% طاقة شمسية حالياً",
+    solarTarget: "100% طاقة متجددة بحلول 2026 للوصول إلى صافي صفر — هدف معلن",
+    exportHonor: "سفراء التصدير وأحد أكبر 100 مصدر في الأردن — حسب إعلان رئاسي للوزراء ورد في الموقع",
+    labs: "مختبرات داخلية معتمدة واختبار لكل تشغيل إنتاج — حسب الشركة",
   },
   developer: {
     nameAr: "م. صهيب الصالح",
@@ -69,6 +76,26 @@ export function getMapsUrl(): string {
 
 export function getCompanyWebsiteUrl(): string {
   return readPublic("NEXT_PUBLIC_COMPANY_WEBSITE") || siteConfig.websiteUrl;
+}
+
+export function getPhone(): string {
+  const raw = readPublic("NEXT_PUBLIC_PHONE") || siteConfig.defaultPhone;
+  return raw.replace(/[^\d]/g, "");
+}
+
+export function getPhoneDisplay(): string {
+  const digits = getPhone();
+  if (!digits) return "";
+  if (digits.startsWith("962") && digits.length === 11) {
+    return `+962-${digits.slice(3, 4)}-${digits.slice(4, 8)}-${digits.slice(8)}`;
+  }
+  return `+${digits}`;
+}
+
+export function getPhoneUrl(): string {
+  const phone = getPhone();
+  if (!phone) return "";
+  return `tel:+${phone}`;
 }
 
 export function getWhatsAppPhone(): string {

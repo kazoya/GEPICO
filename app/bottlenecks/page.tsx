@@ -9,7 +9,7 @@ export default function BottlenecksPage() {
     <div className="mx-auto max-w-5xl space-y-6">
       <PageHeader
         title="اختناقات محتملة — للتحقق لا للاتهام"
-        description="هذه فرضيات من طبيعة صناعة الألبان ومن قراءة الموقع. لا نصف بها عمل المزرعة اليوم."
+        description="هذه فرضيات من طبيعة تصنيع أنظمة الأسلاك ومن قراءة الموقع. لا نصف بها عمل GEPICO اليوم."
       />
       <HonestyNote>كل بطاقة تنتهي بسؤال اكتشاف. إن لم يُجب السؤال تبقى فرضية.</HonestyNote>
       <div className="grid gap-4 md:grid-cols-2">

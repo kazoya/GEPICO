@@ -1,35 +1,31 @@
 export type Department =
-  | "milk_intake"
+  | "procurement"
   | "production"
   | "quality"
-  | "packaging"
-  | "cold_chain"
+  | "warehouse"
   | "sales"
   | "export"
-  | "procurement"
-  | "inventory"
+  | "engineering"
   | "logistics"
   | "management";
 
-export type MilkSource = "cow" | "sheep" | "goat" | "mixed";
-
 export type ProductFamily =
-  | "nabulsi"
-  | "halloumi"
-  | "akkawi"
-  | "labneh"
-  | "jameed"
-  | "yogurt"
-  | "shanina"
-  | "ghee"
-  | "specialty";
-
-export type PackFormat = "deli_drum" | "retail_piece" | "jar" | "skin" | "flexible" | "bottle";
+  | "rigid_conduits"
+  | "corrugated_conduits"
+  | "trunking"
+  | "fittings"
+  | "circular_boxes"
+  | "dry_wall_boxes"
+  | "outlet_boxes"
+  | "adaptable_boxes"
+  | "flush_enclosures"
+  | "led_enclosures"
+  | "solvent_cement"
+  | "installation_accessories";
 
 export type Difficulty = "low" | "medium" | "high";
 export type Impact = "low" | "medium" | "high";
 export type PilotFit = "strong" | "possible" | "later";
-
 export type AiReadiness = "available_now" | "needs_history" | "needs_iot";
 
 export type WorkflowNode = {
@@ -69,9 +65,8 @@ export type CatalogProduct = {
   nameAr: string;
   nameEn: string;
   family: ProductFamily;
-  format: PackFormat;
-  packNote: string;
-  milkHint?: string;
+  note?: string;
+  siteIssue?: string;
 };
 
 export type Insight = {
@@ -94,13 +89,12 @@ export type KnowledgeAnswer = {
 
 export type MonthlyKpi = {
   month: string;
-  milkLiters: number;
-  cheeseKg: number;
-  yieldPct: number;
-  holdLots: number;
-  coldAlerts: number;
-  onTimeDeliveryPct: number;
+  orders: number;
+  onTimePct: number;
+  labHolds: number;
   exportShipments: number;
+  specifierInquiries: number;
+  solarSharePct: number;
 };
 
 export type ReadinessRow = {
@@ -118,8 +112,7 @@ export type ReadinessRow = {
 export type DemoBatch = {
   id: string;
   product: string;
-  milkSource: MilkSource;
-  status: "receiving" | "lab_hold" | "released" | "in_process" | "packing" | "cold_store" | "shipped";
+  status: "receiving" | "lab_hold" | "released" | "in_process" | "packing" | "warehouse" | "shipped";
   startedAt: string;
   labResult: "pending" | "pass" | "fail";
 };
@@ -127,7 +120,7 @@ export type DemoBatch = {
 export type DemoSupplier = {
   id: string;
   alias: string;
-  milkSource: MilkSource;
+  material: string;
   reliabilityScore: number;
   lastDelivery: string;
   note: string;

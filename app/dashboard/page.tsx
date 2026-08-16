@@ -13,14 +13,14 @@ export default function DashboardPage() {
     <div className="mx-auto max-w-6xl space-y-6">
       <PageHeader
         title="لوحة القيادة"
-        description="مؤشرات سيناريو لشكل النقاش مع الإدارة. ليست أرقام تشغيل المزرعة."
+        description="مؤشرات سيناريو لشكل النقاش مع الإدارة. ليست أرقام تشغيل GEPICO."
       />
       <HonestyNote>كل رقم أدناه بيانات تجريبية. لا يُنقل إلى عرض مالي أو تقرير داخلي على أنه واقع.</HonestyNote>
       <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-        <KpiCard label="حليب (لتر) — سيناريو" value={last.milkLiters} hint={last.month} />
-        <KpiCard label="جبن (كغ) — سيناريو" value={last.cheeseKg} hint={`عائد ${last.yieldPct}%`} />
-        <KpiCard label="دفعات محتجزة" value={last.holdLots} hint="تحتاج إفراجاً بشرياً" />
-        <KpiCard label="تنبيهات تبريد" value={last.coldAlerts} hint="سيناريو" />
+        <KpiCard label="طلبات — سيناريو" value={last.orders} hint={last.month} />
+        <KpiCard label="التزام التسليم" value={`${last.onTimePct}%`} hint="سيناريو" />
+        <KpiCard label="تشغيلات محتجزة" value={last.labHolds} hint="تحتاج إفراجاً بشرياً" />
+        <KpiCard label="استفسارات محدّدين" value={last.specifierInquiries} hint="سيناريو" />
       </div>
       <Card className="shadow-sm">
         <CardHeader>
@@ -31,8 +31,8 @@ export default function DashboardPage() {
             data={monthlyKpis}
             xKey="month"
             series={[
-              { key: "cheeseKg", name: "جبن كغ", color: "#1b4332" },
-              { key: "holdLots", name: "احتجاز", color: "#c4a574" },
+              { key: "orders", name: "طلبات", color: "#1e58af" },
+              { key: "labHolds", name: "احتجاز مختبر", color: "#212457" },
             ]}
           />
         </CardContent>

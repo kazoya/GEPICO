@@ -27,16 +27,14 @@ export function formatPct(value: number, digits = 1) {
 }
 
 export const departmentLabel: Record<string, string> = {
-  milk_intake: "استلام الحليب",
+  procurement: "المشتريات والخامات",
   production: "الإنتاج",
-  quality: "الجودة وسلامة الغذاء",
-  packaging: "التعبئة",
-  cold_chain: "سلسلة التبريد",
+  quality: "الجودة والمختبر",
+  warehouse: "المستودع",
   sales: "المبيعات",
   export: "التصدير",
-  procurement: "المشتريات",
-  inventory: "المخزون",
-  logistics: "التوزيع",
+  engineering: "الهندسة والاستشارة",
+  logistics: "الشحن",
   management: "الإدارة",
 };
 
@@ -54,7 +52,7 @@ export const batchStatusLabel: Record<string, string> = {
   released: "مفرج عنها",
   in_process: "قيد التصنيع",
   packing: "تعبئة",
-  cold_store: "تبريد",
+  warehouse: "مستودع",
   shipped: "خرجت",
   recalled: "استدعاء",
 };

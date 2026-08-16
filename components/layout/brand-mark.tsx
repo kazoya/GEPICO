@@ -12,9 +12,9 @@ type BrandMarkProps = {
 };
 
 const sizes = {
-  sm: { box: "h-11 w-16" },
-  md: { box: "h-14 w-20" },
-  lg: { box: "h-20 w-28" },
+  sm: { box: "h-11 w-20" },
+  md: { box: "h-14 w-24" },
+  lg: { box: "h-20 w-36" },
 } as const;
 
 export function BrandMark({
@@ -32,19 +32,19 @@ export function BrandMark({
     <span className={cn("flex items-center gap-3", className)}>
       <span
         className={cn(
-          "relative shrink-0 overflow-hidden rounded-2xl border border-gold/50 bg-black p-1 shadow-[0_0_24px_rgb(196_165_116_/_0.2)]",
+          "relative shrink-0 overflow-hidden rounded-2xl border border-gold/40 bg-white p-1.5 shadow-[0_0_24px_rgb(30_88_175_/_0.2)]",
           dim.box,
         )}
       >
-        <BrandLogo alt={`${siteConfig.nameAr} — شعار المزرعة`} priority />
+        <BrandLogo alt={`${siteConfig.nameAr} — شعار جيبيكو`} priority />
       </span>
       {showText ? (
         <span className="min-w-0 text-right">
           <span className="block text-[10px] tracking-[0.18em] text-gold uppercase">
-            AlMazraa Dairy
+            GEPICO
           </span>
           <span className={cn("mt-0.5 block text-sm font-semibold leading-5", textMain)}>
-            المزرعة للألبان
+            {siteConfig.legalNameAr}
           </span>
           <span className={cn("block text-[11px] leading-4", textMuted)}>
             {siteConfig.productName}

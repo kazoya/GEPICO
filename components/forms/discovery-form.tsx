@@ -14,20 +14,19 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { getDiscoveryFormUrl } from "@/lib/config";
 import {
-  channelOptions,
+  customerTypeOptions,
   defaultAssessment,
   loadAssessment,
-  milkSourceOptions,
   saveAssessment,
   systemOptions,
   type AssessmentValues,
 } from "@/lib/assessment";
 
 const steps = [
-  "الحليب والموردون",
-  "الجودة وسلامة الغذاء",
-  "الإنتاج والتعبئة",
-  "التبريد والقنوات",
+  "العملاء والطلب",
+  "الجودة والمختبر",
+  "الإنتاج والخامات",
+  "المستودع والقنوات",
   "الأنظمة والتقارير",
 ];
 
@@ -52,8 +51,8 @@ export function DiscoveryForm() {
   return (
     <div className="mx-auto max-w-3xl space-y-6">
       <PageHeader
-        title="تقييم اكتشاف مصنع الألبان"
-        description="كل إجابة تساعدنا على تحويل هذا التصور من قراءة للموقع إلى مقترح مبني على واقع الخط والمختبر والتبريد."
+        title="تقييم اكتشاف مصنع أنظمة الأسلاك"
+        description="كل إجابة تساعدنا على تحويل هذا التصور من قراءة للموقع إلى مقترح مبني على واقع الخط والمختبر والمستودع."
         demo={false}
       />
       <HonestyNote>
@@ -78,22 +77,22 @@ export function DiscoveryForm() {
         <CardContent className="space-y-4">
           {step === 0 ? (
             <>
-              <p className="text-sm text-muted-foreground">مصادر الحليب المستخدمة</p>
+              <p className="text-sm text-muted-foreground">أنواع العملاء اليوم</p>
               <CheckList
-                options={milkSourceOptions}
-                selected={values.milkSources}
+                options={customerTypeOptions}
+                selected={values.customerTypes}
                 onToggle={(item) =>
                   form.setValue(
-                    "milkSources",
-                    values.milkSources.includes(item)
-                      ? values.milkSources.filter((v) => v !== item)
-                      : [...values.milkSources, item],
+                    "customerTypes",
+                    values.customerTypes.includes(item)
+                      ? values.customerTypes.filter((v) => v !== item)
+                      : [...values.customerTypes, item],
                   )
                 }
               />
-              <Field label="عدد الموردين التقريبي" name="supplierCount" register={form.register} />
-              <Field label="هل الاستلام رقمي أم دفتر/واتساب؟" name="intakeDigital" register={form.register} />
-              <Field label="قواعد رفض الحليب (حرارة، حموضة، أخرى)" name="rejectRules" register={form.register} />
+              <Field label="كيف يصل الاستفسار اليوم؟" name="inquiryChannel" register={form.register} />
+              <Field label="كيف يُعد عرض السعر؟" name="quoteProcess" register={form.register} />
+              <Field label="من يعتمد السعر النهائي؟" name="priceApproval" register={form.register} />
             </>
           ) : null}
 
@@ -101,45 +100,32 @@ export function DiscoveryForm() {
             <>
               <Field label="فحوصات المختبر الحالية" name="labStages" register={form.register} />
               <Field label="كيف يتم الاحتجاز والإفراج؟" name="holdRelease" register={form.register} />
-              <Field label="الشهادات وتواريخها (ISO 22000، حلال، أخرى)" name="certificates" register={form.register} />
-              <Field label="هل يمكن تتبع العبوة إلى حليب المورد؟" name="recallReady" register={form.register} />
+              <Field label="الشهادات وتواريخها (ISO 9001، علامة الجودة، BSI)" name="certificates" register={form.register} />
+              <Field label="هل يمكن تتبع الشحنة إلى التشغيل ونتائج المختبر؟" name="recallReady" register={form.register} />
             </>
           ) : null}
 
           {step === 2 ? (
             <>
-              <Field label="عدد الخطوط / القدور / ورديات" name="lineCount" register={form.register} />
-              <Field label="كم مرة يتغيّر الصنف في الوردية؟" name="skuChangeover" register={form.register} />
-              <Field label="هل يُقاس العائد (كغ من اللتر)؟" name="yieldTracked" register={form.register} />
-              <Field label="من يعتمد تغيير الوصفة؟" name="recipeControl" register={form.register} />
-              <Field label="خطوط التعبئة (بما فيها MultiFresh)" name="packLines" register={form.register} />
-              <Field label="ملاحظات على خط Multivac" name="multifreshNotes" register={form.register} />
-              <Field label="فحص الوزن والإغلاق" name="weightChecks" register={form.register} />
+              <Field label="عدد الخطوط / الوردية التقريبي" name="lineCount" register={form.register} />
+              <Field label="كيف تُدار الطاقة الاحتياطية المعلنة؟" name="capacityReserve" register={form.register} />
+              <Field label="كم مرة يتغيّر الصنف في الوردية؟" name="changeover" register={form.register} />
+              <Field label="شراكات الخامات — ماذا يُوثَّق عند الاستلام؟" name="materialPartners" register={form.register} />
+              <Field label="كيف تُحمى التزامات العملاء من تقلب سعر الخامة؟" name="materialBuffer" register={form.register} />
+              <Field label="ملصق التعبئة: من يطبعه وكيف يُطابق الصنف؟" name="packLabel" register={form.register} />
             </>
           ) : null}
 
           {step === 3 ? (
             <>
-              <Field label="غرف التبريد وحدود الحرارة" name="coldRooms" register={form.register} />
-              <Field label="هل تُسجَّل حرارة الشاحنات؟" name="truckTemp" register={form.register} />
-              <Field label="ماذا يحدث عند تنبيه حرارة؟" name="alertProcess" register={form.register} />
-              <p className="text-sm text-muted-foreground">قنوات الطلب الحالية</p>
-              <CheckList
-                options={channelOptions}
-                selected={values.orderChannels}
-                onToggle={(item) =>
-                  form.setValue(
-                    "orderChannels",
-                    values.orderChannels.includes(item)
-                      ? values.orderChannels.filter((v) => v !== item)
-                      : [...values.orderChannels, item],
-                  )
-                }
-              />
+              <Field label="نظام المستودع الحالي" name="warehouseSystem" register={form.register} />
+              <Field label="هل يظهر للمبيعات المخزون المتاح للبيع قبل وعد العميل؟" name="availableToPromise" register={form.register} />
+              <Field label="قنوات الطلب الأخرى (مندوب، معرض، تصدير…)" name="inquiryChannel" register={form.register} />
               <Field label="حالة متجر الموقع (يعمل / فارغ / غير مستخدم)" name="shopStatus" register={form.register} />
-              <Field label="هل تحتاجون بوابة B2B للدلي؟" name="b2bNeed" register={form.register} />
+              <Field label="هل تحتاجون بوابة محدّد/موزّع؟" name="specifierPortalNeed" register={form.register} />
               <Field label="أسواق التصدير الفعلية اليوم" name="exportMarkets" register={form.register} />
               <Field label="كم يستغرق تجهيز ملف تصدير؟" name="exportDocsHours" register={form.register} />
+              <Field label="كيف يُقاس رقم الطاقة الشمسية 30% وهدف 2026؟" name="solarMetering" register={form.register} />
             </>
           ) : null}
 

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { MapPin } from "lucide-react";
+import { Mail, Phone } from "lucide-react";
 import { DeveloperQr } from "@/components/layout/developer-qr";
 import { WhatsAppQr } from "@/components/layout/whatsapp-qr";
 import { HonestyNote } from "@/components/shared/demo-badge";
@@ -8,8 +8,10 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   getCompanyWebsiteUrl,
+  getContactEmails,
   getDiscoveryFormUrl,
-  getMapsUrl,
+  getPhoneDisplay,
+  getPhoneUrl,
   getWhatsAppPhoneDisplay,
   getWhatsAppUrl,
   siteConfig,
@@ -18,25 +20,48 @@ import {
 export default function ContactPage() {
   const whatsapp = getWhatsAppUrl();
   const formUrl = getDiscoveryFormUrl();
-  const mapsUrl = getMapsUrl();
   const website = getCompanyWebsiteUrl();
-  const phone = getWhatsAppPhoneDisplay();
+  const phone = getPhoneDisplay();
+  const phoneUrl = getPhoneUrl();
+  const emails = getContactEmails();
+  const salesPhone = getWhatsAppPhoneDisplay();
 
   return (
     <div className="mx-auto max-w-3xl space-y-6">
       <PageHeader
         title="تواصل معنا"
-        description="للتواصل مع مشرف المبيعات أو مطوّر هذا التصور. العنوان أدناه كما نُشر للعامة على الموقع الرسمي."
+        description="للتواصل مع مشرف المبيعات أو مطوّر هذا التصور. هاتف وبريد المصنع أدناه كما ظهرا على gepico.com."
         demo={false}
       />
-      {phone ? (
+      {salesPhone ? (
         <p className="text-sm text-muted-foreground">
           واتساب {siteConfig.recipientRole}:{" "}
+          <span className="font-mono text-foreground" dir="ltr">
+            {salesPhone}
+          </span>
+        </p>
+      ) : null}
+      {phone ? (
+        <p className="text-sm text-muted-foreground">
+          هاتف الشركة المنشور (24 ساعة حسب الموقع):{" "}
           <span className="font-mono text-foreground" dir="ltr">
             {phone}
           </span>
         </p>
       ) : null}
+      <div className="flex flex-col gap-2 rounded-xl border border-gold/20 bg-ochre/40 p-4 text-sm">
+        <p className="font-medium text-foreground">البريد الإلكتروني</p>
+        {emails.map((email) => (
+          <a
+            key={email}
+            href={`mailto:${email}`}
+            className="inline-flex cursor-pointer items-center gap-2 text-copper underline-offset-4 hover:underline"
+          >
+            <Mail className="size-3.5" aria-hidden />
+            <span dir="ltr">{email}</span>
+          </a>
+        ))}
+      </div>
       <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
         <Button asChild className="cursor-pointer">
           <Link href="/assessment">إكمال تقييم المصنع</Link>
@@ -48,11 +73,11 @@ export default function ContactPage() {
             </a>
           </Button>
         ) : null}
-        {mapsUrl ? (
-          <Button asChild variant="secondary" className="cursor-pointer">
-            <a href={mapsUrl} target="_blank" rel="noreferrer">
-              <MapPin className="size-4" aria-hidden />
-              موقع المصنع
+        {phoneUrl ? (
+          <Button asChild variant="outline" className="cursor-pointer border-gold/40">
+            <a href={phoneUrl}>
+              <Phone className="size-4" aria-hidden />
+              اتصال بالمصنع
             </a>
           </Button>
         ) : null}
@@ -72,10 +97,13 @@ export default function ContactPage() {
       <WhatsAppQr />
       <Card className="shadow-sm">
         <CardHeader>
-          <CardTitle className="text-base">العنوان المنشور على الموقع</CardTitle>
+          <CardTitle className="text-base">ما نُشر على الموقع</CardTitle>
         </CardHeader>
         <CardContent className="space-y-2 text-sm leading-7">
-          <p>{siteConfig.postalAddressAr}</p>
+          <p>
+            {siteConfig.legalNameAr} — {siteConfig.city}، {siteConfig.country}. لم يُنشر عنوان شارع تفصيلي
+            على صفحة التواصل التي راجعناها.
+          </p>
           <a href={website} target="_blank" rel="noreferrer" className="text-copper underline-offset-4 hover:underline">
             {siteConfig.websiteUrl}
           </a>
@@ -86,9 +114,8 @@ export default function ContactPage() {
         <DeveloperQr />
       </div>
       <HonestyNote>
-        {siteConfig.recipient}، صُمم هذا النموذج ليكون بداية نقاش عملي حول ما يمكن للتحول الرقمي
-        والأتمتة إضافته إلى عمليات الألبان. رقم الواتساب أعلاه للتواصل مع مشرف المبيعات، ولم يكن
-        منشوراً على mazraadairy.com وقت المراجعة.
+        {siteConfig.recipient}، صُمم هذا النموذج ليكون بداية نقاش عملي. الهاتف والبريد أعلاه من الموقع العام.
+        رقم الواتساب أعلاه للتواصل مع مشرف المبيعات، ولم يكن منشوراً على gepico.com وقت المراجعة.
       </HonestyNote>
     </div>
   );

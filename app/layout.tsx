@@ -28,11 +28,11 @@ const siteUrl = getSiteUrl();
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "AlMazraa Dairy | تصور التحول الرقمي للألبان",
+    default: "GEPICO | تصور التحول الرقمي لأنظمة إدارة الأسلاك",
     template: `%s | ${siteConfig.nameAr}`,
   },
   description:
-    "تصور أولي مستقل لمنظومة رقمية وأتمتة لشركة المزرعة للألبان في الأردن. ليس نظاماً رسمياً للشركة، ويحتاج اكتشافاً ميدانياً قبل أي تقدير دقيق.",
+    "تصور أولي مستقل لمنظومة رقمية وأتمتة لمؤسسة الخليج الفنية الصناعية (GEPICO) في الأردن. ليس نظاماً رسمياً للشركة، ويحتاج اكتشافاً ميدانياً قبل أي تقدير دقيق.",
   icons: {
     icon: [
       { url: "/icon.png", type: "image/png", sizes: "192x192" },
@@ -41,15 +41,15 @@ export const metadata: Metadata = {
     apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
   },
   openGraph: {
-    title: "AlMazraa Dairy | تصور التحول الرقمي للألبان",
-    description: "تصور مستقل للتحول الرقمي في صناعة الألبان — ليس نظاماً رسمياً.",
+    title: "GEPICO | تصور التحول الرقمي لأنظمة إدارة الأسلاك",
+    description: "تصور مستقل للتحول الرقمي في تصنيع أنظمة إدارة الأسلاك والكابلات — ليس نظاماً رسمياً.",
     locale: "ar_JO",
     type: "website",
-    images: [{ url: "/logo.png" }],
+    images: [{ url: "/icon.png" }],
   },
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html
       lang="ar"
