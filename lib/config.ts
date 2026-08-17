@@ -47,7 +47,7 @@ export const siteConfig = {
   developer: {
     nameAr: "م. صهيب الصالح",
     phone: "962787523192",
-    prefill: "المهندس صهيب الصالح لطفأ نود الاستفسار عن آلية ",
+    prefill: "جيبيكو",
   },
 } as const;
 

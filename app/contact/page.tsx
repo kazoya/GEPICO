@@ -109,10 +109,7 @@ export default function ContactPage() {
           </a>
         </CardContent>
       </Card>
-      <div className="rounded-xl border border-gold/30 bg-primary p-4">
-        <p className="mb-3 text-sm text-primary-foreground/80">للتواصل مع المبرمج امسح الرمز</p>
-        <DeveloperQr />
-      </div>
+      <DeveloperQr />
       <HonestyNote>
         {siteConfig.recipient}، صُمم هذا النموذج ليكون بداية نقاش عملي. الهاتف والبريد أعلاه من الموقع العام.
         رقم الواتساب أعلاه للتواصل مع مشرف المبيعات، ولم يكن منشوراً على gepico.com وقت المراجعة.
