@@ -1,21 +1,21 @@
 import type { Metadata } from "next";
-import { Geist_Mono, Noto_Naskh_Arabic, Noto_Sans_Arabic } from "next/font/google";
+import { Geist_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import { AppShell } from "@/components/layout/app-shell";
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { getSiteUrl, siteConfig } from "@/lib/config";
 import "./globals.css";
 
-const naskh = Noto_Naskh_Arabic({
-  variable: "--font-naskh",
-  subsets: ["arabic"],
-  weight: ["400", "500", "600", "700"],
-});
-
-const arabic = Noto_Sans_Arabic({
+const arabic = localFont({
+  src: [
+    { path: "./fonts/DroidArabicKufi-Regular.ttf", weight: "400", style: "normal" },
+    { path: "./fonts/DroidArabicKufi-Regular.ttf", weight: "500", style: "normal" },
+    { path: "./fonts/DroidArabicKufi-Bold.ttf", weight: "600", style: "normal" },
+    { path: "./fonts/DroidArabicKufi-Bold.ttf", weight: "700", style: "normal" },
+  ],
   variable: "--font-arabic",
-  subsets: ["arabic"],
-  weight: ["300", "400", "500", "700"],
+  display: "swap",
 });
 
 const mono = Geist_Mono({
@@ -55,7 +55,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       lang="ar"
       dir="rtl"
       suppressHydrationWarning
-      className={`${naskh.variable} ${arabic.variable} ${mono.variable} h-full antialiased`}
+      className={`${arabic.variable} ${mono.variable} h-full antialiased`}
     >
       <body className="min-h-full" suppressHydrationWarning>
         <TooltipProvider>
